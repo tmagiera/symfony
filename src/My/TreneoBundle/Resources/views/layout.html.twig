@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Treneo{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('bundles/treneo/css/style.css') }}" />
+    </head>
+    <body>
+
+    {% block content_header %}
+        <div>
+            <a href="{{ path('_start') }}">Główna</a>
+        </div>
+    {% endblock %}
+
+        <div class="content">
+           {% block content %}
+           {% endblock %}
+        </div>
+    </body>
+</html>
