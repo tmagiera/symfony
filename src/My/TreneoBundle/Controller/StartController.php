@@ -8,11 +8,8 @@ class StartController extends Controller
 {
     public function indexAction()
     {
-        /*
-         * The action's view can be rendered using render() method
-         * or @Template annotation as demonstrated in DemoController.
-         *
-         */
-        return $this->render('MyTreneoBundle:Start:index.html.twig');
+        $offers = $this->getDoctrine()->getRepository("MyTreneoBundle:Offer")->getLatestOffers();
+
+        return $this->render('MyTreneoBundle:Start:index.html.twig', array("offers" => $offers));
     }
 }

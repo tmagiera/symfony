@@ -5,8 +5,9 @@ namespace My\TreneoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\CommentRepository")
  * @ORM\Table(name="comment")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Comment
 {
@@ -26,6 +27,32 @@ class Comment
      */
     protected $content;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdDate;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $updatedDate;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->setCreatedDate(new \DateTime());
+        $this->setUpdatedDate(new \DateTime());
+    }
+
+    /**
+     * ORM|preUpdate
+     */
+    public function setUpdatedValue()
+    {
+        $this->setUpdatedDate(new \DateTime());
+    }
 
     /**
      * Set email
@@ -94,5 +121,51 @@ class Comment
     public function getOffer()
     {
         return $this->offer;
+    }
+
+    /**
+     * Set createdDate
+     *
+     * @param \DateTime $createdDate
+     * @return Comment
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->createdDate = $createdDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedDate()
+    {
+        return $this->createdDate;
+    }
+
+    /**
+     * Set updatedDate
+     *
+     * @param \DateTime $updatedDate
+     * @return Comment
+     */
+    public function setUpdatedDate($updatedDate)
+    {
+        $this->updatedDate = $updatedDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedDate
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updatedDate;
     }
 }

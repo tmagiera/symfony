@@ -7,4 +7,19 @@
 {% block content %}
 <h1>Start</h1>
     <a href="{{ path('_offer_add') }}">Dodaj ofertę</a>
+
+    <div>
+    {% for offer in offers %}
+        <div>
+            <p>{ offer.id }</p>
+            <p>{ offer.name }</p>
+            <p>{ offer.createdDate|date("Y-m-d") }</p>
+            <p><a href="{{ path("_offer_show", {"id" : offer.id}) }}">Więcej..</a></p>
+        </div>
+    {% else %}
+        <div>
+            Brak ofert
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}

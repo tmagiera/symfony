@@ -3,8 +3,15 @@ _start:
     defaults: { _controller: MyTreneoBundle:Start:index }
 
 _offer_add:
-    pattern:  /offer/add
+    pattern:  /submit/
     defaults: { _controller: MyTreneoBundle:Offer:add }
+
+_offer_show:
+    pattern:  /offer/{id}
+    defaults: { _controller: MyTreneoBundle:Offer:show }
+    requirements:
+      _method: GET
+      id: \d+
 
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"

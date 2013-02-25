@@ -8,11 +8,17 @@ class OfferController extends Controller
 {
     public function addAction()
     {
-        /*
-         * The action's view can be rendered using render() method
-         * or @Template annotation as demonstrated in DemoController.
-         *
-         */
         return $this->render('MyTreneoBundle:Offer:add.html.twig');
     }
+
+    public function showAction($id)
+    {
+        $offer = $this->getDoctrine()->getRepository("MyTreneoBundle:Offer")->find($id);
+
+        if (!$offer)
+            throw $this->createNotFoundException("Nie mogę znaleźć oferty");
+
+        return $this->render('MyTreneoBundle:Offer:show.html.twig', array("offer" => $offer));
+    }
+
 }

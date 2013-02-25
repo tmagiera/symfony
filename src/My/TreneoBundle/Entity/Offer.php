@@ -3,10 +3,12 @@
 namespace My\TreneoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\OfferRepository")
  * @ORM\Table(name="offer")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Offer
 {
@@ -71,14 +73,26 @@ class Offer
     {
         $this->comments[] = $comment;
     }
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+
+        $this->setCreatedDate(new \DateTime());
+        $this->setUpdatedDate(new \DateTime());
     }
-    
+
+    /**
+     * ORM|preUpdate
+     */
+    public function setUpdatedValue()
+    {
+        $this->setUpdatedDate(new \DateTime());
+    }
+
     /**
      * Get id
      *

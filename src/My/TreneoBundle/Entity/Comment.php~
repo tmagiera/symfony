@@ -5,8 +5,9 @@ namespace My\TreneoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\CommentRepository")
  * @ORM\Table(name="comment")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Comment
 {
@@ -27,13 +28,30 @@ class Comment
     protected $content;
 
     /**
-     * Get offerId
-     *
-     * @return integer 
+     * @ORM\Column(type="datetime")
      */
-    public function getOfferId()
+    protected $createdDate;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $updatedDate;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
     {
-        return $this->offerId;
+        $this->setCreatedDate(new \DateTime());
+        $this->setUpdatedDate(new \DateTime());
+    }
+
+    /**
+     * ORM|preUpdate
+     */
+    public function setUpdatedValue()
+    {
+        $this->setUpdatedDate(new \DateTime());
     }
 
     /**
@@ -80,5 +98,28 @@ class Comment
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set offer
+     *
+     * @param \My\TreneoBundle\Entity\Offer $offer
+     * @return Comment
+     */
+    public function setOffer(\My\TreneoBundle\Entity\Offer $offer)
+    {
+        $this->offer = $offer;
+    
+        return $this;
+    }
+
+    /**
+     * Get offer
+     *
+     * @return \My\TreneoBundle\Entity\Offer 
+     */
+    public function getOffer()
+    {
+        return $this->offer;
     }
 }
