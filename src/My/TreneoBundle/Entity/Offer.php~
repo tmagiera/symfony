@@ -20,7 +20,7 @@ class Offer
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="offer")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="offer_id")
      */
     protected $comments;
 

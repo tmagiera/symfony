@@ -4,8 +4,11 @@
 
 {% block content %}
 Ogłoszenie:
-    <p>{{ offer.surname }}</p>
     <p>{{ offer.name }}</p>
+    <p>{{ offer.surname }}</p>
     <p>{{ offer.phone }}</p>
-
+    <p><a href="http://{{ offer.site }}">{{ offer.site }}</a></p>
+    {% for comment in offer.comments %}
+        <div>{{ comment.email }} : {{ comment.content }}</div>
+    {% endfor %}
 {% endblock %}

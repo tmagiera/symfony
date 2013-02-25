@@ -13,9 +13,16 @@ class Comment
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Offer")
-    */
-    protected $offer;
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="comments", cascade={"persist"})
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="id")
+     */
+    protected $offer_id;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -101,29 +108,6 @@ class Comment
     }
 
     /**
-     * Set offer
-     *
-     * @param \My\TreneoBundle\Entity\Offer $offer
-     * @return Comment
-     */
-    public function setOffer(\My\TreneoBundle\Entity\Offer $offer)
-    {
-        $this->offer = $offer;
-    
-        return $this;
-    }
-
-    /**
-     * Get offer
-     *
-     * @return \My\TreneoBundle\Entity\Offer 
-     */
-    public function getOffer()
-    {
-        return $this->offer;
-    }
-
-    /**
      * Set createdDate
      *
      * @param \DateTime $createdDate
@@ -167,5 +151,28 @@ class Comment
     public function getUpdatedDate()
     {
         return $this->updatedDate;
+    }
+
+    /**
+     * Set offer_id
+     *
+     * @param \My\TreneoBundle\Entity\Offer $offerId
+     * @return Comment
+     */
+    public function setOfferId(\My\TreneoBundle\Entity\Offer $offerId)
+    {
+        $this->offer_id = $offerId;
+    
+        return $this;
+    }
+
+    /**
+     * Get offer_id
+     *
+     * @return \My\TreneoBundle\Entity\Offer 
+     */
+    public function getOfferId()
+    {
+        return $this->offer_id;
     }
 }

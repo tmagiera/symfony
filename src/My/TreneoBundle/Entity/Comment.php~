@@ -13,9 +13,16 @@ class Comment
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Offer")
-    */
-    protected $offer;
+     * @ORM\GeneratedValue
+     */
+    protected $id;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="comments")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="id")
+     */
+    protected $offer_id;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -121,5 +128,51 @@ class Comment
     public function getOffer()
     {
         return $this->offer;
+    }
+
+    /**
+     * Set createdDate
+     *
+     * @param \DateTime $createdDate
+     * @return Comment
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->createdDate = $createdDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedDate()
+    {
+        return $this->createdDate;
+    }
+
+    /**
+     * Set updatedDate
+     *
+     * @param \DateTime $updatedDate
+     * @return Comment
+     */
+    public function setUpdatedDate($updatedDate)
+    {
+        $this->updatedDate = $updatedDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedDate
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updatedDate;
     }
 }

@@ -52,7 +52,7 @@ class OfferFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         $manager->flush();
 
-        $this->addReference('offer-1', $offer1);
+        $this->addReference("offer-1", $offer1);
         $this->addReference('offer-2', $offer2);
         $this->addReference('offer-3', $offer3);
         $this->addReference('offer-4', $offer4);
