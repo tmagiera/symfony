@@ -26,6 +26,15 @@ class Comment
      */
     protected $content;
 
+    /**
+     * Get offerId
+     *
+     * @return integer 
+     */
+    public function getOfferId()
+    {
+        return $this->offerId;
+    }
 
     /**
      * Set email
@@ -71,28 +80,5 @@ class Comment
     public function getContent()
     {
         return $this->content;
-    }
-
-    /**
-     * Set offer
-     *
-     * @param \My\TreneoBundle\Entity\Offer $offer
-     * @return Comment
-     */
-    public function setOffer(\My\TreneoBundle\Entity\Offer $offer)
-    {
-        $this->offer = $offer;
-    
-        return $this;
-    }
-
-    /**
-     * Get offer
-     *
-     * @return \My\TreneoBundle\Entity\Offer 
-     */
-    public function getOffer()
-    {
-        return $this->offer;
     }
 }
