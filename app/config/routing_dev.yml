@@ -2,9 +2,17 @@ _start:
     pattern:  /
     defaults: { _controller: MyTreneoBundle:Start:index }
 
-_offer_add:
-    pattern:  /submit/
-    defaults: { _controller: MyTreneoBundle:Offer:add }
+_offer_add_form:
+    pattern:  /offer/create/
+    defaults: { _controller: MyTreneoBundle:Offer:showAddForm }
+    requirements:
+      _method: GET
+
+_offer_create:
+    pattern:  /offer/create/
+    defaults: { _controller: MyTreneoBundle:Offer:create }
+    requirements:
+      _method: POST
 
 _offer_show:
     pattern:  /offer/{id}
@@ -12,6 +20,13 @@ _offer_show:
     requirements:
       _method: GET
       id: \d+
+
+_comment_add:
+    pattern:  /comment/add/{offer_id}
+    defaults: { _controller: MyTreneoBundle:Comment:add }
+    requirements:
+      _method: POST
+      offer_id: \d+
 
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"

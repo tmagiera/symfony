@@ -159,9 +159,9 @@ class Comment
      * @param \My\TreneoBundle\Entity\Offer $offerId
      * @return Comment
      */
-    public function setOfferId(\My\TreneoBundle\Entity\Offer $offerId)
+    public function setOfferId(\My\TreneoBundle\Entity\Offer $offer)
     {
-        $this->offer_id = $offerId;
+        $this->offer_id = $offer;
     
         return $this;
     }

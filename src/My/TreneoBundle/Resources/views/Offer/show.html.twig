@@ -11,4 +11,8 @@ Ogłoszenie:
     {% for comment in offer.comments %}
         <div>{{ comment.email }} : {{ comment.content }}</div>
     {% endfor %}
+    <form action="{{ path("_comment_add", {"offer_id":offer.id}) }}" method="POST" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p><input type="submit" value="Dodaj komentarz"></p>
+    </form>
 {% endblock %}

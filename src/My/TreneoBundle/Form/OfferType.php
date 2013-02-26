@@ -18,8 +18,6 @@ class OfferType extends AbstractType
             ->add('phone')
             ->add('specialization')
             ->add('description')
-            ->add('createdDate')
-            ->add('updatedDate')
         ;
     }
 

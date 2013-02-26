@@ -1,0 +1,11 @@
+{% extends 'MyTreneoBundle::layout.html.twig' %}
+
+{% block title %}Treneo - dodanie ogłoszenia{% endblock %}
+
+{% block content %}
+Dodaj ogłoszenie
+<form action="{{ path("_offer_create") }}" method="POST" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p><input type="submit" value="Dodaj"></p>
+</form>
+{% endblock %}

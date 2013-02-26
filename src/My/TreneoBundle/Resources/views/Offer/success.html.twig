@@ -1,0 +1,9 @@
+{% extends 'MyTreneoBundle::layout.html.twig' %}
+
+{% block title %}Treneo - dodanie ogłoszenia{% endblock %}
+
+{% block content %}
+Dziękujemy za dodanie ogłoszenia.
+<br/>
+Możesz je zobaczyć pod adresem <a href="{{ path("_offer_show", {"id":offer.id}) }}">{{ path("_offer_show", {"id":offer.id}) }}</a>
+{% endblock %}

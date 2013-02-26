@@ -13,9 +13,6 @@ class CommentType extends AbstractType
         $builder
             ->add('email')
             ->add('content')
-            ->add('createdDate')
-            ->add('updatedDate')
-            ->add('offer_id')
         ;
     }
 
