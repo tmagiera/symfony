@@ -3,6 +3,10 @@
 namespace My\TreneoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 
 /**
  * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\CommentRepository")
@@ -13,13 +17,13 @@ class Comment
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="comments", cascade={"persist"})
      * @ORM\JoinColumn(name="offer_id", referencedColumnName="id")
      */
     protected $offer_id;
@@ -108,29 +112,6 @@ class Comment
     }
 
     /**
-     * Set offer
-     *
-     * @param \My\TreneoBundle\Entity\Offer $offer
-     * @return Comment
-     */
-    public function setOffer(\My\TreneoBundle\Entity\Offer $offer)
-    {
-        $this->offer = $offer;
-    
-        return $this;
-    }
-
-    /**
-     * Get offer
-     *
-     * @return \My\TreneoBundle\Entity\Offer 
-     */
-    public function getOffer()
-    {
-        return $this->offer;
-    }
-
-    /**
      * Set createdDate
      *
      * @param \DateTime $createdDate
@@ -174,5 +155,44 @@ class Comment
     public function getUpdatedDate()
     {
         return $this->updatedDate;
+    }
+
+    /**
+     * Set offer_id
+     *
+     * @param \My\TreneoBundle\Entity\Offer $offerId
+     * @return Comment
+     */
+    public function setOfferId(\My\TreneoBundle\Entity\Offer $offer)
+    {
+        $this->offer_id = $offer;
+    
+        return $this;
+    }
+
+    /**
+     * Get offer_id
+     *
+     * @return \My\TreneoBundle\Entity\Offer 
+     */
+    public function getOfferId()
+    {
+        return $this->offer_id;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('email', new Email());
+        $metadata->addPropertyConstraint('content', new NotBlank());
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

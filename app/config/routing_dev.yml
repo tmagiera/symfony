@@ -15,7 +15,7 @@ _offer_create:
       _method: POST
 
 _offer_show:
-    pattern:  /offer/{id}
+    pattern:  /{id}/{slug}/
     defaults: { _controller: MyTreneoBundle:Offer:show }
     requirements:
       _method: GET

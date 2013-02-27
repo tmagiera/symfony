@@ -4,6 +4,10 @@ namespace My\TreneoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Url;
 
 /**
  * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\OfferRepository")
@@ -23,6 +27,11 @@ class Offer
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="offer_id")
      */
     protected $comments;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -86,11 +95,20 @@ class Offer
     }
 
     /**
-     * ORM|preUpdate
+     * @ORM\preUpdate
      */
     public function setUpdatedValue()
     {
         $this->setUpdatedDate(new \DateTime());
+    }
+
+    /**
+     * @ORM\prePersist
+     * @ORM\preUpdate
+     */
+    public function setSlugValue()
+    {
+        $this->setSlug($this->getName()." ".$this->getSurname()." ".$this->getSpecialization());
     }
 
     /**
@@ -328,5 +346,65 @@ class Offer
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('email', new Email());
+        $metadata->addPropertyConstraint('name', new NotBlank());
+        $metadata->addPropertyConstraint('surname', new NotBlank());
+        $metadata->addPropertyConstraint('description', new NotBlank());
+        $metadata->addPropertyConstraint('site', new Url());
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Offer
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $this->slugify($slug);
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        if (function_exists('iconv'))
+        {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('#[^-\w]+#', '', $text);
+
+        if (empty($text))
+        {
+            return 'n-a';
+        }
+
+        return $text;
     }
 }

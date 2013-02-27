@@ -3,6 +3,10 @@
 namespace My\TreneoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 
 /**
  * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\CommentRepository")
@@ -174,5 +178,21 @@ class Comment
     public function getOfferId()
     {
         return $this->offer_id;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('email', new Email());
+        $metadata->addPropertyConstraint('content', new NotBlank());
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

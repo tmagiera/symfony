@@ -8,6 +8,8 @@ Ogłoszenie:
     <p>{{ offer.surname }}</p>
     <p>{{ offer.phone }}</p>
     <p><a href="http://{{ offer.site }}">{{ offer.site }}</a></p>
+    {{ map_container|raw }}
+    {{ map_javascript|raw }}
     {% for comment in offer.comments %}
         <div>{{ comment.email }} : {{ comment.content }}</div>
     {% endfor %}
@@ -15,4 +17,5 @@ Ogłoszenie:
         {{ form_widget(form) }}
         <p><input type="submit" value="Dodaj komentarz"></p>
     </form>
+
 {% endblock %}

@@ -4,6 +4,10 @@ namespace My\TreneoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Url;
 
 /**
  * @ORM\Entity(repositoryClass="My\TreneoBundle\Entity\Repository\OfferRepository")
@@ -23,6 +27,11 @@ class Offer
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="offer_id")
      */
     protected $comments;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -328,5 +337,14 @@ class Offer
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('email', new Email());
+        $metadata->addPropertyConstraint('name', new NotBlank());
+        $metadata->addPropertyConstraint('surname', new NotBlank());
+        $metadata->addPropertyConstraint('description', new NotBlank());
+        $metadata->addPropertyConstraint('site', new Url());
     }
 }

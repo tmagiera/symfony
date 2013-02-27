@@ -14,9 +14,8 @@ class OfferRepository extends EntityRepository
 {
     public function getLatestOffers() {
 
-        $offers = $this->createQueryBuilder("offer")
+        $offers = $this->createQueryBuilder("o")
             ->select("o")
-            ->from("MyTreneoBundle:Offer", "o")
             ->addOrderBy("o.createdDate", "DESC")
             ->getQuery()
             ->getResult();
