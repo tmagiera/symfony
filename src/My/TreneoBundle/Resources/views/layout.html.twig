@@ -3,16 +3,25 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Treneo{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('bundles/treneo/css/style.css') }}" />
+        {% stylesheets
+            "bundles/treneo/css/*.css"
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% javascripts
+            "@SonatajQueryBundle/Resources/public/jquery-1.8.0.js"
+            "@SonatajQueryBundle/Resources/public/jquery-ui-1.8.23.js"
+            "@SonatajQueryBundle/Resources/public/jquery-ui-i18n.js"
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </head>
     <body>
 
-    {% block content_header %}
-        <div>
-            <a href="{{ path('_start') }}">Główna</a>
+\        <div class="content_header">
+            <a href="{{ path('_start') }}"><h1>Treneo</h1></a>
         </div>
-    {% endblock %}
-
+ 
         <div class="content">
            {% block content %}
            {% endblock %}
