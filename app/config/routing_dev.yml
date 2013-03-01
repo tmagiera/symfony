@@ -14,8 +14,16 @@ _offer_create:
     requirements:
       _method: POST
 
-_offer_show:
+_offer_show_slug:
     pattern:  /{id}/{slug}/
+    defaults: { _controller: MyTreneoBundle:Offer:show }
+    requirements:
+      _method: GET
+      id: \d+
+      slug: .+
+
+_offer_show:
+    pattern:  /{id}/
     defaults: { _controller: MyTreneoBundle:Offer:show }
     requirements:
       _method: GET

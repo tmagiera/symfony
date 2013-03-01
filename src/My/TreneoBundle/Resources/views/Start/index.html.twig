@@ -14,7 +14,7 @@
             <p>{{ offer.name }}</p>
             <p>{{ offer.createdDate|date("Y-m-d") }}</p>
             <p>{{ offer.comments|length }} komentarzy</p>
-            <p><a href="{{ path("_offer_show", {"id" : offer.id, "slug" : offer.slug}) }}">Więcej..</a></p>
+            <p><a href="{{ path("_offer_show_slug", {"id" : offer.id, "slug" : offer.slug}) }}">Więcej..</a></p>
         </div>
     {% else %}
         <div>

@@ -3,6 +3,7 @@
 namespace My\TreneoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use My\TreneoBundle\Entity\Offer;
 use My\TreneoBundle\Entity\Comment;
 use My\TreneoBundle\Form\CommentType;
 
@@ -20,8 +21,19 @@ class CommentController extends Controller
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('_offer_show', array("id" => $offer_id)));
+            return $this->redirect($this->generateUrl('_offer_show', array(
+                "id" => $offer->getId()
+            )));
         }
     }
 
+    public function listAction(Offer $offer) {
+        $comment = new Comment();
+        $form = $this->createForm(new CommentType(), $comment);
+
+        return $this->render('MyTreneoBundle:Comment:list.html.twig', array(
+            "offer" => $offer,
+            "form" => $form->createView()
+        ));
+    }
 }
