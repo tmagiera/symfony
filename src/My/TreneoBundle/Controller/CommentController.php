@@ -33,12 +33,12 @@ class CommentController extends Controller
         ));
     }
 
-    public function formAction(Offer $offer) {
+    public function formAction($offer_id) {
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
 
         return $this->render('MyTreneoBundle:Comment:add.html.twig', array(
-            "offer" => $offer,
+            "offer_id" => $offer_id,
             "form" => $form->createView()
         ));
     }

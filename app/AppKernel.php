@@ -24,8 +24,9 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         );
 
+        $bundles[] = new My\TreneoBundle\MyTreneoBundle();
+
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new My\TreneoBundle\MyTreneoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

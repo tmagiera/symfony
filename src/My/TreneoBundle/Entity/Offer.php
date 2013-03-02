@@ -69,6 +69,16 @@ class Offer
     protected $description;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    protected $lat;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $lang;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $createdDate;
@@ -406,5 +416,51 @@ class Offer
         }
 
         return $text;
+    }
+
+    /**
+     * Set lat
+     *
+     * @param float $lat
+     * @return Offer
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    
+        return $this;
+    }
+
+    /**
+     * Get lat
+     *
+     * @return float 
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param float $lang
+     * @return Offer
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+    
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return float 
+     */
+    public function getLang()
+    {
+        return $this->lang;
     }
 }

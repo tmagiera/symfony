@@ -1,14 +1,6 @@
-<div>
-    <a href="#" id="dodaj_komentarz">Dodaj komentarz</a>
-</div>
-<div id="comment_add" class="comment_add">
-<form action="{{ path("_comment_add", {"offer_id":offer.id}) }}" method="POST" {{ form_enctype(form) }}>
+<div class="comment_add">
+<form action="{{ path("_comment_add", {"offer_id":offer_id}) }}" method="POST" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p><input type="submit" value="Dodaj komentarz"></p>
 </form>
 </div>
-<script>
-    $("#dodaj_komentarz").click(function () {
-        $("#comment_add").show("slow");
-    });
-</script>

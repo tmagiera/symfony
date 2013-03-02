@@ -9,7 +9,7 @@ Ogłoszenie:
     <p>{{ offer.phone }}</p>
     <p><a href="http://{{ offer.site }}">{{ offer.site }}</a></p>
 
-{% render "MyTreneoBundle:Map:view" with {"offer":offer} %}
-{% render "MyTreneoBundle:Comment:list" with {"offer":offer} %}
-{% render "MyTreneoBundle:Comment:form" with {"offer":offer} %}
+{{ render(controller("MyTreneoBundle:Map:view", {"lat":offer.lat, "lang":offer.lang})) }}
+{{ render(controller("MyTreneoBundle:Comment:list", {"offer":offer})) }}
+{{ render_hinclude(controller("MyTreneoBundle:Comment:form", {"offer_id":offer.id})) }}
 {% endblock %}

@@ -69,6 +69,16 @@ class Offer
     protected $description;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    protected $lat;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $lang;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $createdDate;
@@ -95,11 +105,20 @@ class Offer
     }
 
     /**
-     * ORM|preUpdate
+     * @ORM\preUpdate
      */
     public function setUpdatedValue()
     {
         $this->setUpdatedDate(new \DateTime());
+    }
+
+    /**
+     * @ORM\prePersist
+     * @ORM\preUpdate
+     */
+    public function setSlugValue()
+    {
+        $this->setSlug($this->getName()." ".$this->getSurname()." ".$this->getSpecialization());
     }
 
     /**
@@ -346,5 +365,56 @@ class Offer
         $metadata->addPropertyConstraint('surname', new NotBlank());
         $metadata->addPropertyConstraint('description', new NotBlank());
         $metadata->addPropertyConstraint('site', new Url());
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Offer
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $this->slugify($slug);
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        if (function_exists('iconv'))
+        {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('#[^-\w]+#', '', $text);
+
+        if (empty($text))
+        {
+            return 'n-a';
+        }
+
+        return $text;
     }
 }
