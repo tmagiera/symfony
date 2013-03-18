@@ -28,7 +28,10 @@
         "egeloen/google-map": "dev-master",
         "willdurand/geocoder-bundle": "1.2.*@dev",
         "willdurand/geocoder": "1.2.*@dev",
-        "sonata-project/jquery-bundle": "1.9.*@dev"
+        "sonata-project/jquery-bundle": "1.9.*@dev",
+        "knplabs/gaufrette": "0.2.*@dev",
+        "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
+        "amazonwebservices/aws-sdk-for-php": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
