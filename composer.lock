@@ -1,5 +1,5 @@
 {
-    "hash": "a1fd30813ac1f923861ef3839993c593",
+    "hash": "b0a0d82054e55cedd8ad2d42a930365a",
     "packages": [
         {
             "name": "amazonwebservices/aws-sdk-for-php",
@@ -1137,12 +1137,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "fcee205a5a3a859c009d976ba3acfe67958e912c"
+                "reference": "89e9837425ec32dedf1c90bb3cc48056b9315113"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/fcee205a5a3a859c009d976ba3acfe67958e912c",
-                "reference": "fcee205a5a3a859c009d976ba3acfe67958e912c",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/89e9837425ec32dedf1c90bb3cc48056b9315113",
+                "reference": "89e9837425ec32dedf1c90bb3cc48056b9315113",
                 "shasum": ""
             },
             "require": {
@@ -1200,7 +1200,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-03-05 17:56:54"
+            "time": "2013-03-20 02:05:59"
         },
         {
             "name": "monolog/monolog",
@@ -1263,6 +1263,33 @@
                 "psr-3"
             ],
             "time": "2013-02-13 18:06:51"
+        },
+        {
+            "name": "nervo/yuicompressor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nervo/yuicompressor.git",
+                "reference": "2.4.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nervo/yuicompressor/zipball/2.4.7",
+                "reference": "2.4.7",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "description": "YUI Compressor is an open source tool that supports the compression of both JavaScript and CSS files. The JavaScript compression removes comments and white-spaces as well as obfuscates local variables using the smallest possible variable name. CSS compression is done using a regular-expression-based CSS minifier.",
+            "homepage": "https://github.com/yui/yuicompressor",
+            "keywords": [
+                "java",
+                "yui"
+            ],
+            "time": "2012-05-12 08:31:30"
         },
         {
             "name": "phpoption/phpoption",
@@ -2323,118 +2350,6 @@
                 "templating"
             ],
             "time": "2013-02-09 18:21:53"
-        },
-        {
-            "name": "willdurand/geocoder",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/willdurand/Geocoder.git",
-                "reference": "3af81315b45e5e211eb81c528cf44b6bbdc368f2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Geocoder/zipball/3af81315b45e5e211eb81c528cf44b6bbdc368f2",
-                "reference": "3af81315b45e5e211eb81c528cf44b6bbdc368f2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "guzzle/guzzle": "@stable",
-                "kriswallsmith/buzz": "@stable",
-                "zendframework/zendframework": ">=2.1,<3.0"
-            },
-            "suggest": {
-                "ext-curl": "Enabling the curl extension allows you to use CurlHttpAdapter.",
-                "guzzle/guzzle": "Enabling Guzzle allows you to use the GuzzleHttpAdapter.",
-                "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter.",
-                "zendframework/zend-http": "Enabling Zend Http allows you to use the ZendHttpAdapter."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Geocoder": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "William Durand",
-                    "email": "william.durand1@gmail.com",
-                    "homepage": "http://www.willdurand.fr"
-                }
-            ],
-            "description": "The almost missing Geocoder PHP 5.3 library.",
-            "homepage": "http://geocoder-php.org",
-            "keywords": [
-                "abstraction",
-                "geocoder",
-                "geocoding",
-                "geoip"
-            ],
-            "time": "2013-03-18 10:44:25"
-        },
-        {
-            "name": "willdurand/geocoder-bundle",
-            "version": "dev-master",
-            "target-dir": "Bazinga/Bundle/GeocoderBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/willdurand/BazingaGeocoderBundle.git",
-                "reference": "1.2.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/BazingaGeocoderBundle/zipball/1.2.3",
-                "reference": "1.2.3",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": ">=2.0,<2.4-dev",
-                "symfony/framework-bundle": ">=2.0,<2.4-dev",
-                "willdurand/geocoder": ">=1.0,<2.0"
-            },
-            "require-dev": {
-                "symfony/yaml": ">=2.0,<2.4-dev"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Bazinga\\Bundle\\GeocoderBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "William Durand",
-                    "email": "william.durand1@gmail.com",
-                    "homepage": "http://www.willdurand.fr"
-                }
-            ],
-            "description": "Integration of Geocoder into Symfony2",
-            "keywords": [
-                "geocoder",
-                "geocoding"
-            ],
-            "time": "2013-03-15 22:38:29"
         }
     ],
     "packages-dev": null,
@@ -2450,11 +2365,10 @@
         "kriswallsmith/assetic": 20,
         "egeloen/google-map-bundle": 20,
         "egeloen/google-map": 20,
-        "willdurand/geocoder-bundle": 20,
-        "willdurand/geocoder": 20,
         "sonata-project/jquery-bundle": 20,
         "knplabs/gaufrette": 20,
         "knplabs/knp-gaufrette-bundle": 20,
-        "amazonwebservices/aws-sdk-for-php": 20
+        "amazonwebservices/aws-sdk-for-php": 20,
+        "nervo/yuicompressor": 20
     }
 }

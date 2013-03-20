@@ -1,6 +1,7 @@
 set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
 set :use_composer, true
 set :update_vendors, true
+set :dump_assetic_assets,   true
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
