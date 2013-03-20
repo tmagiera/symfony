@@ -14,11 +14,13 @@ class OfferRepository extends EntityRepository
 {
     public function getLatestOffers() {
 
-        $offers = $this->createQueryBuilder("o")
+        $query = $this->createQueryBuilder("o")
             ->select("o")
             ->addOrderBy("o.createdDate", "DESC")
-            ->getQuery()
-            ->getResult();
+            ->getQuery();
+
+        $query->useResultCache(true, 5);
+        $offers = $query->getResult();
 
         return $offers;
     }
