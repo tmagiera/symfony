@@ -1,5 +1,5 @@
 {
-    "hash": "b0a0d82054e55cedd8ad2d42a930365a",
+    "hash": "9760cef970b49e48e805a779a17f0175",
     "packages": [
         {
             "name": "amazonwebservices/aws-sdk-for-php",
@@ -1265,33 +1265,6 @@
             "time": "2013-02-13 18:06:51"
         },
         {
-            "name": "nervo/yuicompressor",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nervo/yuicompressor.git",
-                "reference": "2.4.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nervo/yuicompressor/zipball/2.4.7",
-                "reference": "2.4.7",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD"
-            ],
-            "description": "YUI Compressor is an open source tool that supports the compression of both JavaScript and CSS files. The JavaScript compression removes comments and white-spaces as well as obfuscates local variables using the smallest possible variable name. CSS compression is done using a regular-expression-based CSS minifier.",
-            "homepage": "https://github.com/yui/yuicompressor",
-            "keywords": [
-                "java",
-                "yui"
-            ],
-            "time": "2012-05-12 08:31:30"
-        },
-        {
             "name": "phpoption/phpoption",
             "version": "1.1.0",
             "source": {
@@ -2368,7 +2341,6 @@
         "sonata-project/jquery-bundle": 20,
         "knplabs/gaufrette": 20,
         "knplabs/knp-gaufrette-bundle": 20,
-        "amazonwebservices/aws-sdk-for-php": 20,
-        "nervo/yuicompressor": 20
+        "amazonwebservices/aws-sdk-for-php": 20
     }
 }
