@@ -11,5 +11,5 @@ Ogłoszenie:
 
 {{ render(controller("MyTreneoBundle:Map:view", {"lat":offer.lat, "lang":offer.lang})) }}
 {{ render(controller("MyTreneoBundle:Comment:list", {"offer":offer})) }}
-{{ render_hinclude(controller("MyTreneoBundle:Comment:form", {"offer_id":offer.id})) }}
+{{ render(controller("MyTreneoBundle:Comment:form", {"offer_id":offer.id})) }}
 {% endblock %}

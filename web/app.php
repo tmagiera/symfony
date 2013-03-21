@@ -31,8 +31,8 @@ $xhprof_data = xhprof_disable();
 // Saving the XHProf run
 // using the default implementation of iXHProfRuns.
 //
-include_once "/var/www/xhproof/xhprof_lib/utils/xhprof_lib.php";
-include_once "/var/www/xhproof/xhprof_lib/utils/xhprof_runs.php";
+include_once "/var/www/xhgui/xhprof_lib/utils/xhprof_lib.php";
+include_once "/var/www/xhgui/xhprof_lib/utils/xhprof_runs.php";
 
 $xhprof_runs = new XHProfRuns_Default();
 
