@@ -22,7 +22,8 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle()
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle()
         );
 
         $bundles[] = new My\TreneoBundle\MyTreneoBundle();

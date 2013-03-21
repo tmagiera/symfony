@@ -29,7 +29,8 @@
         "sonata-project/jquery-bundle": "1.9.*@dev",
         "knplabs/gaufrette": "0.2.*@dev",
         "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
-        "amazonwebservices/aws-sdk-for-php": "dev-master"
+        "amazonwebservices/aws-sdk-for-php": "dev-master",
+        "ekino/newrelic-bundle": "master-dev"
     },
     "scripts": {
         "post-install-cmd": [

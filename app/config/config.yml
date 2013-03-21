@@ -62,3 +62,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+ekino_new_relic:
+    application_name: Treneo # (mandatory, default value in newrelic is PHP Application)
+    api_key: 75eb805a6515a81199b31c8f1f7f8dac0d33bcd4
