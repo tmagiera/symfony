@@ -18,6 +18,8 @@ class OfferFixtures extends AbstractFixture implements OrderedFixtureInterface
         $offer1->setPhone("600-600-600");
         $offer1->setSite("www.treneo.pl");
         $offer1->setSpecialization("masaz");
+        $offer1->setLat(0);
+        $offer1->setLang(0);
         $manager->persist($offer1);
 
         $offer2 = new Offer();
@@ -28,6 +30,8 @@ class OfferFixtures extends AbstractFixture implements OrderedFixtureInterface
         $offer2->setPhone("600-600-600");
         $offer2->setSite("www.treneo.pl");
         $offer2->setSpecialization("masaz");
+        $offer2->setLat(0);
+        $offer2->setLang(0);
         $manager->persist($offer2);
 
         $offer3 = new Offer();
@@ -38,6 +42,8 @@ class OfferFixtures extends AbstractFixture implements OrderedFixtureInterface
         $offer3->setPhone("600-600-600");
         $offer3->setSite("www.treneo.pl");
         $offer3->setSpecialization("masaz");
+        $offer3->setLat(0);
+        $offer3->setLang(0);
         $manager->persist($offer3);
 
         $offer4 = new Offer();
@@ -48,6 +54,8 @@ class OfferFixtures extends AbstractFixture implements OrderedFixtureInterface
         $offer4->setPhone("600-600-600");
         $offer4->setSite("www.treneo.pl");
         $offer4->setSpecialization("masaz");
+        $offer4->setLat(0);
+        $offer4->setLang(0);
         $manager->persist($offer4);
 
         $manager->flush();

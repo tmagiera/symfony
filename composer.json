@@ -6,7 +6,8 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.2.*",
+        "symfony/symfony": "2.3.*@dev",
+        "symfony/icu": "1.2.*@dev",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "1.2.*",
         "doctrine/doctrine-migrations-bundle": "dev-master",
@@ -20,17 +21,18 @@
         "sensio/distribution-bundle": "2.2.*",
         "sensio/framework-extra-bundle": "2.2.*",
         "sensio/generator-bundle": "2.2.*",
-        "jms/security-extra-bundle": "1.4.*",
-        "jms/di-extra-bundle": "1.3.*",
         "kriswallsmith/assetic": "1.1.*@dev",
         "phpunit/phpunit": "3.7.*",
-        "egeloen/google-map-bundle": "dev-f-factory",
+        "egeloen/google-map-bundle": "dev-master",
         "egeloen/google-map": "dev-master",
         "sonata-project/jquery-bundle": "1.9.*@dev",
         "knplabs/gaufrette": "0.2.*@dev",
         "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
         "amazonwebservices/aws-sdk-for-php": "dev-master",
-        "ekino/newrelic-bundle": "master-dev"
+        "ekino/newrelic-bundle": "master-dev",
+        "behat/behat": "2.4.*@dev",
+        "jms/security-extra-bundle": "1.5.*@dev",
+        "jms/di-extra-bundle": "1.4.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
@@ -56,5 +58,6 @@
         "branch-alias": {
             "dev-master": "2.1-dev"
         }
-    }
+    },
+    "license" : "propertiary"
 }
